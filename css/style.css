@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 
 :root {
     --primary-color: #368cd7;
@@ -12,11 +12,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Ubuntu", sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 body {
-    background-image: url("https://juniordelonge.github.io/clima/img/tempo.jpg");
+    background-image: url('https://juniordelonge.github.io/clima/img/tempo.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-color: var(--primary-color);
@@ -79,8 +79,7 @@ body {
     background: var(--secondary-color);
 }
 
-h2,
-p {
+h2, p {
     margin-bottom: 0.625rem;
 }
 
@@ -121,13 +120,19 @@ footer {
         width: 100%;
     }
     #search-bar {
-        flex-direction: column;
+        flex-direction: row-reverse;
+        flex-wrap: nowrap;
+        gap: 1px;
     }
     #search-bar input {
-        margin-bottom: 0.625rem;
+        margin-bottom: .1rem;
         margin-right: 0;
+        flex: 1 0 75%; /* Ocupa 100% da largura disponível */
     }
     #search-bar button {
-        width: 100%;
+        width: 40%; /* Ajuste a largura do botão aqui */
+        height: 2.5rem; /* Ajuste a altura do botão aqui */
     }
 }
+
+
