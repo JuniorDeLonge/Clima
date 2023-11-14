@@ -17,6 +17,9 @@
 }
 
 body {
+    background-image: url('https://juniordelonge.github.io/clima/img/clima.png');
+    background-repeat: no-repeat;
+    background-size: contain;
     background-color: var(--primary-color);
     display: flex;
     justify-content: space-around;
@@ -128,5 +131,9 @@ footer {
     }
     #search-bar #location-button {
         width: 50px;
+    }
+
+    body {
+        background-size: cover;
     }
 }
