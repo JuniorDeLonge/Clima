@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@200;400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 
 :root {
     --primary-color: #368cd7;
@@ -12,14 +12,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Mukta", sans-serif;
-    font-size: 1rem;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 body {
-    background-image: url('https://juniordelonge.github.io/clima/img/clima.png');
+    background-image: url('https://juniordelonge.github.io/clima/img/tempo.jpg');
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-color: var(--primary-color);
     display: flex;
     justify-content: space-around;
@@ -133,7 +132,4 @@ footer {
         width: 50px;
     }
 
-    body {
-        background-size: cover;
-    }
 }

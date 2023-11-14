@@ -16,7 +16,7 @@ function changeBackground(clima) {
 // Função para buscar os dados do tempo
 async function fetchWeatherData(city) {
     document.getElementById('loading').classList.remove('hidden');
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(city)}&appid=36dba993511bb6c65a566db0442a4614&units=metric&lang=pt_br`);
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(city)}&appid=3adf342557400a33545abde1b7a7bca9&units=metric&lang=pt_br`);
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -85,7 +85,7 @@ document.getElementById('city-input').addEventListener('keyup', function (event)
 
 // Função para buscar o nome da cidade com base na latitude e longitude
 async function getCityName(lat, lon) {
-    const response = await fetch(`https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=36dba993511bb6c65a566db0442a4614`);
+    const response = await fetch(`https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=3adf342557400a33545abde1b7a7bca9`);
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -122,7 +122,7 @@ document.getElementById('search-button').addEventListener('click', function (eve
 // Função para buscar e exibir a previsão do tempo
 async function getForecast(city) {
     try {
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${encodeURI(city)}&appid=36dba993511bb6c65a566db0442a4614&units=metric&lang=pt_br`);
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${encodeURI(city)}&appid=3adf342557400a33545abde1b7a7bca9&units=metric&lang=pt_br`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
