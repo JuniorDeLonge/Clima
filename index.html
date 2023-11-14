@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Clima Agora | Junior DeLonge</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/clima.png" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<!-- criado por @juniordelonge -->
+<body>
+    <main id="weather-card">
+        <div id="search-bar">
+            <input type="text" id="city-input" placeholder="Pesquisar cidade">
+            <button id="search-button"><i class="fas fa-search"></i></button>
+            <button id="location-button"><i class="fas fa-location-arrow"></i></button>
+        </div>
+        <div id="loading" class="hidden">Carregando...</div>
+        <h2 id="city-name"></h2>
+        <p id="temperature"></p>
+        <p id="condition"></p>
+        <p id="wind"></p>
+        <p id="humidity"></p>
+        <p id="feelslike"></p>
+        <p id="alert"></p>
+        <p id="pressure"></p>
+        <p id="precipitation"></p>
+        <p id="visibility"></p>
+        <div id="forecast">
+            <h2>Previsão do tempo para os próximos dias:</h2>
+            <div id="day1"></div>
+            <div id="day2"></div>
+            <div id="day3"></div>
+            <div id="day4"></div>
+            <div id="day5"></div>
+        </div>
+        <div class="aviso">
+            <footer>dev @juniordelonge</footer>
+        </div>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@200;400;500;700&display=swap");
+
+:root {
+    --primary-color: #368cd7;
+    --secondary-color: #5d9edb;
+    --quase-branco: #eeeeee;
+    --cinza-c: #1f1f1f;
+    --branco: #fafafa;
+}
+/* criado por @juniordelonge */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Mukta", sans-serif;
+    font-size: 1rem;
+}
+
+body {
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+
+.hidden {
+    display: none;
+    background: var(--quase-branco);
+}
+
+#weather-card {
+    background: var(--quase-branco);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px var(--cinza-c);
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    box-sizing: border-box;
+}
+
+#search-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#search-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#search-bar input {
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid var(--secondary-color);
+    width: 70%; /* Ajuste a largura aqui */
+    margin-right: 2px; /* Ajuste a margem aqui */
+}
+
+#search-bar button {
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid var(--quase-branco);
+    width: 20%; /* Ajuste a largura aqui */
+}
+
+#search-bar #search-button {
+    flex-grow: 1;
+    margin-right: 2px; /* Ajuste a margem aqui */
+    background: var(--primary-color);
+    color: var(--branco);
+    cursor: pointer;
+}
+
+#search-bar #location-button {
+    width: 45px;
+    background: var(--primary-color);
+    color: var(--branco);
+    cursor: pointer;
+}
+
+#search-bar #search-button:hover,
+#search-bar #location-button:hover {
+    background: var(--secondary-color);
+}
+
+.aviso {
+    color: var(--quase-branco);
+    padding-top: 5px;
+}
+
+#forecast h2 {
+    color: #09375e;
+}
+
+h2#city-name {
+    color: #09375e;
+}
+
+input#city-input {
+    color: var(--secondary-color);
+
+}
+
+
+footer {
+    margin-top: 15px;
+    color: var(--primary-color);
+    font-size: 15px;
+}
+
+@media screen and (max-width: 600px) {
+    #weather-card {
+        width: 90%;
+    }
+    #search-bar {
+        flex-direction: row;
+    }
+    #search-bar #search-button {
+        flex-grow: 1;
+        margin-right: 1px;
+    }
+    #search-bar #location-button {
+        width: 50px;
+    }
+}
