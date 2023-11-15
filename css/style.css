@@ -127,6 +127,7 @@ footer {
 @media screen and (max-width: 37.5rem) {
     #weather-card {
         width: 100%;
+        margin: 50px; /* Ajuste o valor da margem aqui */
     }
     #search-bar {
         flex-direction: row-reverse;
