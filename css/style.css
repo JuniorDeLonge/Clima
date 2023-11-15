@@ -81,10 +81,11 @@ body {
     width: 2.5rem;
     height: 2.5rem;
     margin-right: 0.1875rem;
+    transition: background 0.3s ease;
 }
 
-#search-bar #search-button:hover,
-#search-bar #location-button:hover {
+#search-bar button:hover,
+#search-bar button:focus {
     background: var(--secondary-color);
 }
 
@@ -95,10 +96,7 @@ p {
 }
 
 /* Estilo para o título de previsão do tempo */
-h2#forecast {
-    color: #09375e;
-}
-
+h2#forecast,
 h2#city-name {
     color: #09375e;
 }

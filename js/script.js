@@ -28,23 +28,26 @@ function changeBackground(clima) {
     body.style.backgroundImage = weatherConditions[clima] || '';
 }
 
-// Função assíncrona para buscar dados climáticos
+// Adicione indicadores visuais para mostrar quando os dados estão sendo carregados
 async function fetchWeatherData(city) {
     const trimmedCity = city.trim();
+    const loadingElement = document.getElementById('loading');
+    loadingElement.classList.remove('hidden');
 
-    document.getElementById('loading').classList.remove('hidden');
     try {
         const apiKey = await getApiKey();
         const response = await fetch(`${WEATHER_API_URL}?q=${encodeURI(trimmedCity)}&appid=${apiKey}&units=metric&lang=pt_br`);
+        
         if (!response.ok) {
             const errorMessage = await response.json();
             throw new Error(`HTTP error! status: ${response.status}, message: ${errorMessage.message}`);
         }
+
         const data = await response.json();
-        document.getElementById('loading').classList.add('hidden');
+        loadingElement.classList.add('hidden');
         return data;
     } catch (error) {
-        document.getElementById('loading').classList.add('hidden');
+        loadingElement.classList.add('hidden');
         displayError("Não foi possível encontrar a cidade. Verifique o nome e tente novamente.");
         throw error;
     }
