@@ -38,9 +38,9 @@ body {
 }
 
 #weather-card {
-    background-image: linear-gradient(164deg, #b273ffe6, #34f5f5eb);
+    background: #ffffffe6;
     border-radius: 0.625rem;
-    box-shadow: 0px 0px 0.625rem #9cb9d5;
+    box-shadow: 0px 0px 0.625rem #181818;
     padding: 1.25rem;
     width: 100%;
     max-width: 31.25rem;
