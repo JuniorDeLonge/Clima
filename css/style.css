@@ -119,16 +119,12 @@ footer {
     font-size: 0.75rem;
 }
 
-.elemento {
-    position: fixed;
-    top: 0;
-}
-
 @media screen and (max-width: 37.5rem) {
     #weather-card {
         width: 100%;
-        margin: 10px; /* Ajuste o valor da margem aqui */
+        margin: 10px;
     }
+
     #search-bar {
         flex-direction: row-reverse;
         flex-wrap: nowrap;
