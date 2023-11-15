@@ -1,5 +1,4 @@
 // Constantes para a API e URLs
-const API_KEY = '3adf342557400a33545abde1b7a7bca9';
 const WEATHER_API_URL = 'https://api.openweathermap.org/data/2.5/weather';
 const FORECAST_API_URL = 'https://api.openweathermap.org/data/2.5/forecast';
 const GEO_API_URL = 'https://api.openweathermap.org/geo/1.0/reverse';
@@ -35,7 +34,8 @@ async function fetchWeatherData(city) {
 
     document.getElementById('loading').classList.remove('hidden');
     try {
-        const response = await fetch(`${WEATHER_API_URL}?q=${encodeURI(trimmedCity)}&appid=${API_KEY}&units=metric&lang=pt_br`);
+        const apiKey = await getApiKey();
+        const response = await fetch(`${WEATHER_API_URL}?q=${encodeURI(trimmedCity)}&appid=${apiKey}&units=metric&lang=pt_br`);
         if (!response.ok) {
             const errorMessage = await response.json();
             throw new Error(`HTTP error! status: ${response.status}, message: ${errorMessage.message}`);
@@ -119,7 +119,8 @@ document.getElementById('city-input').addEventListener('keyup', function (event)
 
 // Função para obter o nome da cidade com base na latitude e longitude
 async function getCityName(lat, lon) {
-    const response = await fetch(`${GEO_API_URL}?lat=${lat}&lon=${lon}&limit=1&appid=${API_KEY}`);
+    const apiKey = await getApiKey();
+    const response = await fetch(`${GEO_API_URL}?lat=${lat}&lon=${lon}&limit=1&appid=${apiKey}`);
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -133,9 +134,13 @@ function getLocation() {
         navigator.geolocation.getCurrentPosition(async position => {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
-            const cityName = await getCityName(lat, lon);
-            getWeather(cityName);
-            getForecast(cityName);
+            try {
+                const cityName = await getCityName(lat, lon);
+                getWeather(cityName);
+                getForecast(cityName);
+            } catch (error) {
+                console.error('Erro ao obter nome da cidade:', error);
+            }
         }, error => {
             console.error('Erro ao obter localização:', error);
         });
@@ -156,7 +161,8 @@ document.getElementById('search-button').addEventListener('click', function (eve
 // Função para buscar e exibir a previsão do tempo
 async function getForecast(city) {
     try {
-        const response = await fetch(`${FORECAST_API_URL}?q=${encodeURI(city)}&appid=${API_KEY}&units=metric&lang=pt_br`);
+        const apiKey = await getApiKey();
+        const response = await fetch(`${FORECAST_API_URL}?q=${encodeURI(city)}&appid=${apiKey}&units=metric&lang=pt_br`);
         if (!response.ok) {
             const errorMessage = await response.json();
             throw new Error(`HTTP error! status: ${response.status}, message: ${errorMessage.message}`);
@@ -181,4 +187,10 @@ async function getForecast(city) {
 // Esconde inicialmente a seção de previsão
 for (let i = 1; i <= 5; i++) {
     document.getElementById(`day${i}`).style.display = 'none';
+}
+
+// Use uma função assíncrona para proteger constantes sensíveis
+async function getApiKey() {
+    // Simule uma chamada de servidor para obter a chave
+    return '3adf342557400a33545abde1b7a7bca9';
 }
