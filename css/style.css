@@ -84,7 +84,7 @@ body {
 
 h2,
 p {
-    margin-bottom: 0.625rem;
+    margin-bottom: 0.3rem;
 }
 
 h2#forecast {
@@ -138,5 +138,11 @@ footer {
     #search-bar button {
         width: 40%; /* Ajuste a largura do botão aqui */
         height: 2.5rem; /* Ajuste a altura do botão aqui */
+    }
+
+    h2,
+    p {
+        margin-bottom: 0.3rem;
+        font-size: 0.8rem;
     }
 }
