@@ -21,17 +21,24 @@ function changeBackground(clima) {
     body.style.backgroundImage = weatherImages[clima] || '';
 }
 
-// Função para buscar os dados do tempo
 async function fetchWeatherData(city) {
+    const trimmedCity = city.trim();
+
     document.getElementById('loading').classList.remove('hidden');
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(city)}&appid=3adf342557400a33545abde1b7a7bca9&units=metric&lang=pt_br`);
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+    try {
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(trimmedCity)}&appid=3adf342557400a33545abde1b7a7bca9&units=metric&lang=pt_br`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        document.getElementById('loading').classList.add('hidden');
+        return data;
+    } catch (error) {
+        document.getElementById('loading').classList.add('hidden');
+        alert("Não foi possível encontrar a cidade. Verifique o nome e tente novamente.");
     }
-    const data = await response.json();
-    document.getElementById('loading').classList.add('hidden');
-    return data;
 }
+
 
 // Função para exibir os dados do tempo na página
 function displayWeatherData(data) {
