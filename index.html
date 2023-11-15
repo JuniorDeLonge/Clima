@@ -2,13 +2,16 @@
 <html lang="pt-br">
 
 <head>
-    <title>CLIMA AGORA | @JuniorDeLonge</title>
+    <title>Clima Agora</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="shortcut icon" href="img/clima.png" type="image/x-icon">
+    <meta name="description" content="Veja como está o Clima Agora em tempo real">
+    <meta name="author" content="Junior DeLonge">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="img/clima.png" type="image/x-icon" alt="Ícone do Clima">
+    <meta name="theme-color" content="#368cd7">
     <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <!-- criado por @juniordelonge -->
 
@@ -16,8 +19,8 @@
     <main id="weather-card">
         <div id="search-bar">
             <input type="text" id="city-input" placeholder="Pesquisar por cidade...">
-            <button id="search-button"><i class="fas fa-search"></i></button>
-            <button id="location-button"><i class="fas fa-location-arrow"></i></button>
+            <button id="search-button" aria-label="Pesquisar"><i class="fas fa-search"></i></button>
+            <button id="location-button" aria-label="Localização"><i class="fas fa-location-arrow"></i></button>
         </div>
         <div id="loading" class="hidden">Carregando...</div>
         <h2 id="city-name"></h2>
@@ -35,7 +38,7 @@
         <p id="day2"></p>
         <p id="day3"></p>
         <p id="day4"></p>
-        <p id="day5">
+        <p id="day5"></p>
         <footer>DEV: @juniordelonge</footer>
     </main>
     <script src="js/script.js"></script>
