@@ -2,13 +2,21 @@
 function changeBackground(clima) {
     const body = document.body;
     const weatherImages = {
-        'Clear': "url('imagens/clear.jpg')",
-        'Clouds': "url('imagens/clouds.jpg')",
-        'Rain': "url('imagens/rain.jpg')",
-        'Drizzle': "url('imagens/rain.jpg')",
-        'Mist': "url('imagens/rain.jpg')",
-        'Thunderstorm': "url('imagens/storm.jpg')",
-        'Snow': "url('imagens/snow.jpg')"
+        'Clear': "url('imagens/claro.jpg')",
+        'Rain': "url('imagens/chuva.jpg')",
+        'Clouds': "url('imagens/nuvens.jpg')",
+        'Snow': "url('imagens/neve.jpg')",
+        'Drizzle': "url('imagens/chuvisco.jpg')",
+        'Thunderstorm': "url('imagens/tempestade.jpg')",
+        'Fog': "url('imagens/neblina.jpg')",
+        'Mist': "url('imagens/nevoa.jpg')",
+        'Haze': "url('imagens/bruma.jpg')",
+        'Smoke': "url('imagens/fumaca.jpg')",
+        'Dust': "url('imagens/poeira.jpg')",
+        'Sand': "url('imagens/areia.jpg')",
+        'Ash': "url('imagens/cinzas.jpg')",
+        'Squall': "url('imagens/rajada.jpg')",
+        'Tornado': "url('imagens/tornado.jpg')"
     };
     body.style.backgroundImage = weatherImages[clima] || '';
 }

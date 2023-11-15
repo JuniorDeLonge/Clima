@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+﻿@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
 
 :root {
     --primary-color: #368cd7;
@@ -12,13 +12,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: "Ubuntu", sans-serif;
 }
 
 body {
-    background-image: url('https://juniordelonge.github.io/clima/img/tempo.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
     background-color: var(--primary-color);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
@@ -26,7 +23,20 @@ body {
     justify-items: center;
     align-items: center;
     height: 100vh;
-    padding: 1.24rem;
+    padding: 1.25rem;
+
+    background-image: url("https://juniordelonge.github.io/clima/imagens/bg-jr.jpg");
+    /* Isso fará com que a imagem de fundo preencha todo o corpo do documento */
+    background-size: cover;
+
+    /* Isso irá centralizar a imagem no corpo do documento */
+    background-position: center center;
+
+    /* Isso fará com que a imagem de fundo não se repita */
+    background-repeat: no-repeat;
+
+    /* Isso fará com que a imagem de fundo permaneça fixa ao rolar a página */
+    background-attachment: fixed;
 }
 
 .hidden {
@@ -79,7 +89,8 @@ body {
     background: var(--secondary-color);
 }
 
-h2, p {
+h2,
+p {
     margin-bottom: 0.625rem;
 }
 
@@ -125,7 +136,7 @@ footer {
         gap: 1px;
     }
     #search-bar input {
-        margin-bottom: .1rem;
+        margin-bottom: 0.1rem;
         margin-right: 0;
         flex: 1 0 75%; /* Ocupa 100% da largura disponível */
     }
@@ -134,5 +145,3 @@ footer {
         height: 2.5rem; /* Ajuste a altura do botão aqui */
     }
 }
-
-
