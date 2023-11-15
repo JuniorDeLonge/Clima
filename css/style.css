@@ -127,8 +127,6 @@ footer {
 @media screen and (max-width: 37.5rem) {
     #weather-card {
         width: 100%;
-        transform: scale(1);
-        transform-origin: top left;
     }
     #search-bar {
         flex-direction: row-reverse;
