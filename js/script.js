@@ -37,7 +37,7 @@ async function fetchWeatherData(city) {
     try {
         const apiKey = await getApiKey();
         const response = await fetch(`${WEATHER_API_URL}?q=${encodeURI(trimmedCity)}&appid=${apiKey}&units=metric&lang=pt_br`);
-        
+
         if (!response.ok) {
             const errorMessage = await response.json();
             throw new Error(`HTTP error! status: ${response.status}, message: ${errorMessage.message}`);
@@ -80,15 +80,16 @@ function displayWeatherData(data) {
         'Tornado': 'Tornado'
     };
 
-    document.getElementById('city-name').textContent = 'Tempo em: ' + data.name;
-    document.getElementById('temperature').textContent = 'Temperatura atual: ' + data.main.temp + '°C';
-    document.getElementById('condition').textContent = 'Condição do tempo: ' + (weatherConditions[data.weather[0].main] || data.weather[0].main);
-    document.getElementById('wind').textContent = 'Velocidade do vento: ' + data.wind.speed + ' km/h';
-    document.getElementById('humidity').textContent = 'Umidade: ' + data.main.humidity + '%';
-    document.getElementById('feelslike').textContent = 'Sensação térmica: ' + data.main.feels_like + '°C';
-    document.getElementById('pressure').textContent = 'Pressão atmosférica: ' + data.main.pressure + ' mb';
-    document.getElementById('precipitation').textContent = 'Precipitação: ' + (data.rain ? data.rain['1h'] : 0) + ' mm';
-    document.getElementById('visibility').textContent = 'Visibilidade: ' + (data.visibility ? data.visibility / 1000 : 'N/A') + ' km';
+    document.getElementById('city-name').innerHTML = '<i class="fas fa-map-marker-alt icon"></i> Temporal em: ' + data.name;
+    document.getElementById('temperature').innerHTML = '<i class="fas fa-thermometer-half icon"></i> Temperatura atual: ' + data.main.temp + '°C';
+    document.getElementById('condition').innerHTML = '<i class="fas fa-cloud icon"></i> Condição do tempo: ' + (weatherConditions[data.weather[0].main] || data.weather[0].main);
+    document.getElementById('wind').innerHTML = '<i class="fas fa-wind icon"></i> Velocidade do vento: ' + data.wind.speed + ' km/h';
+    document.getElementById('humidity').innerHTML = '<i class="fas fa-tint icon"></i> Umidade: ' + data.main.humidity + '%';
+    document.getElementById('feelslike').innerHTML = '<i class="fas fa-temperature-low icon"></i> Sensação térmica: ' + data.main.feels_like + '°C';
+    document.getElementById('pressure').innerHTML = '<i class="fas fa-tachometer-alt icon"></i> Pressão atmosférica: ' + data.main.pressure + ' mb';
+    document.getElementById('precipitation').innerHTML = '<i class="fas fa-cloud-showers-heavy icon"></i> Precipitação: ' + (data.rain ? data.rain['1h'] : 0) + ' mm';
+    document.getElementById('visibility').innerHTML = '<i class="fas fa-eye icon"></i> Visibilidade: ' + (data.visibility ? data.visibility / 1000 : 'N/A') + ' km';
+
 
     if (data.alerts) {
         console.log(data.alerts);
@@ -161,7 +162,6 @@ document.getElementById('search-button').addEventListener('click', function (eve
     getForecast(city);
 });
 
-// Função para buscar e exibir a previsão do tempo
 async function getForecast(city) {
     try {
         const apiKey = await getApiKey();
@@ -177,11 +177,11 @@ async function getForecast(city) {
             const date = new Date(data.list[i].dt_txt);
             const dayOfWeek = daysOfWeek[date.getDay()];
             const forecastElement = document.getElementById(`day${i / 8 + 1}`);
-            forecastElement.textContent = `${dayOfWeek} | Mín: ${data.list[i].main.temp_min}°C | Máx: ${data.list[i].main.temp_max}°C | ${data.list[i].weather[0].description.charAt(0).toUpperCase() + data.list[i].weather[0].description.slice(1)}.`;
+            forecastElement.innerHTML = `<i class="far fa-calendar-alt"></i> ${dayOfWeek} | Mín: ${data.list[i].main.temp_min}°C | Máx: ${data.list[i].main.temp_max}°C | ${data.list[i].weather[0].description.charAt(0).toUpperCase() + data.list[i].weather[0].description.slice(1)}.`;
             forecastElement.style.display = 'block';
         }
 
-        document.getElementById('forecast').textContent = 'Previsão para os próximos dias em ' + data.city.name;
+        document.getElementById('forecast').innerHTML = `<i class="far fa-calendar-alt"></i> Previsão para os próximos dias em ${data.city.name}`;
     } catch (error) {
         console.error('Erro:', error);
     }
